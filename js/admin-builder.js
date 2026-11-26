@@ -170,11 +170,11 @@ window.TMD = window.TMD || {};
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label class="block text-[10px] font-display font-bold text-muted uppercase mb-1">Nama Hero (Kata 1)</label>
-              <input id="admin-team-first" name="hero_first" type="text" required value="${esc(editing ? editing.hero_first : '')}" placeholder="DEAD" class="w-full px-3 py-2 bg-slate-base border border-white/15 text-white text-sm uppercase rounded-sm outline-none focus:border-rivals-yellow"/>
+              <input id="admin-team-first" name="hero_first" type="text" required value="${esc(editing ? editing.hero_first : '')}" placeholder="BAJAK" class="w-full px-3 py-2 bg-slate-base border border-white/15 text-white text-sm uppercase rounded-sm outline-none focus:border-rivals-yellow"/>
             </div>
             <div>
               <label class="block text-[10px] font-display font-bold text-muted uppercase mb-1">Nama Hero (Kata 2)</label>
-              <input id="admin-team-second" name="hero_second" type="text" required value="${esc(editing ? editing.hero_second : '')}" placeholder="POOL" class="w-full px-3 py-2 bg-slate-base border border-white/15 text-white text-sm uppercase rounded-sm outline-none focus:border-rivals-yellow"/>
+              <input id="admin-team-second" name="hero_second" type="text" required value="${esc(editing ? editing.hero_second : '')}" placeholder="LAUT" class="w-full px-3 py-2 bg-slate-base border border-white/15 text-white text-sm uppercase rounded-sm outline-none focus:border-rivals-yellow"/>
             </div>
           </div>
           <div>

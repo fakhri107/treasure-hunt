@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html class="dark" lang="id">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+  <title>Panel Panitia</title>
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'slate-base': '#261F29',
+            'slate-nav': '#1C161F',
+            'slate-card': '#342B38',
+            'slate-hover': '#423747',
+            'rivals-yellow': '#E69B19',
+            'rivals-mint': '#10B981',
+            'rivals-red': '#EF4444',
+            'muted': '#B8AEB9'
+          },
+          fontFamily: {
+            'display': ['Montserrat', 'sans-serif'],
+            'body': ['Plus Jakarta Sans', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #261F29;
+      color: #F8FAFC;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .rivals-corner-cta {
+      border-radius: 0 0 0 10px;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-slate-base text-slate-100">
+
+  <!-- TOP BAR PANITIA -->
+  <header class="h-16 bg-slate-nav border-b border-white/10 flex items-center justify-between sticky top-0 z-40">
+    <div class="flex items-center gap-3 pl-4 sm:pl-8">
+      <div class="w-11 h-11 rounded-full bg-slate-nav border-2 border-rivals-yellow/90 p-0.5 overflow-hidden flex items-center justify-center shrink-0 shadow-[0_0_12px_rgba(230,155,25,0.28)]">
+        <img src="assets/logo.svg" alt="Logo Treasure Hunt" class="w-full h-full object-contain"/>
+      </div>
+      <div>
+        <div class="font-display font-black text-xs sm:text-sm tracking-[0.12em] uppercase text-white">PANEL PANITIA</div>
+      </div>
+    </div>
+
+    <div class="flex items-center h-full">
+      <span id="admin-cloud-badge" class="hidden sm:inline-flex items-center px-3 py-1 mr-3 bg-white/10 text-muted font-display text-[10px] font-bold uppercase rounded-sm">
+        SIMPAN DI HP INI
+      </span>
+      <a href="/" class="rivals-corner-cta bg-rivals-yellow text-slate-nav h-full pl-7 pr-5 sm:pl-9 sm:pr-7 flex items-center gap-1.5 font-display font-black text-xs tracking-[0.1em] uppercase hover:brightness-105">
+        <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+        <span>Tampilan Peserta</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- PIN GATE OVERLAY (Jika PIN Panitia diaktifkan) -->
+  <div id="admin-pin-gate" class="hidden flex-1 items-center justify-center p-4">
+    <form id="admin-pin-form" class="w-full max-w-sm bg-slate-card border border-rivals-yellow/50 rounded-sm p-6 space-y-4 shadow-2xl">
+      <div class="font-display text-xs font-extrabold tracking-[0.16em] text-rivals-yellow uppercase flex items-center gap-2">
+        <span class="material-symbols-outlined text-[18px]">lock</span>
+        <span>OTORISASI PANITIA</span>
+      </div>
+      <p class="text-xs text-slate-300">Masukkan PIN Panitia untuk mengakses halaman perancangan kegiatan.</p>
+      <input id="admin-pin-input" type="password" required placeholder="Masukkan PIN..." class="w-full px-3.5 py-2.5 bg-slate-base border border-white/20 focus:border-rivals-yellow text-white text-sm outline-none rounded-sm"/>
+      <button type="submit" class="w-full py-2.5 bg-rivals-yellow text-slate-nav font-display text-xs font-black tracking-[0.14em] uppercase rounded-sm">
+        Masuk Panel Panitia
+      </button>
+    </form>
+  </div>
+
+  <!-- WORKSPACE PANITIA -->
+  <div id="admin-workspace" class="flex-1 flex flex-col max-w-[1320px] w-full mx-auto px-4 sm:px-8 py-6 gap-5">
+    <nav id="admin-tabs-nav" class="flex items-center gap-1 border-b border-white/10 overflow-x-auto"></nav>
+    <main id="admin-builder-body" class="flex-1"></main>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="quiz-toast" class="fixed bottom-6 right-6 z-50 max-w-md transform translate-y-28 opacity-0 pointer-events-none transition-all duration-300 bg-slate-nav border-l-4 border-rivals-mint shadow-2xl p-4 flex items-center justify-between gap-4 rounded-sm">
+    <div>
+      <div id="toast-title" class="font-display text-xs font-extrabold tracking-[0.12em] text-white uppercase">STATUS</div>
+      <div id="toast-desc" class="text-xs text-slate-300 mt-0.5">Pesan</div>
+    </div>
+    <span id="toast-xp" class="px-2.5 py-1 bg-rivals-mint text-slate-nav font-display text-[11px] font-black tracking-wider uppercase shrink-0 rounded-sm">
+      OK
+    </span>
+  </div>
+
+  <script src="js/icons.js"></script>
+  <script src="js/default-data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/admin-builder.js"></script>
+</body>
+</html>

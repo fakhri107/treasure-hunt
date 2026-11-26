@@ -1,0 +1,16 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="32" cy="32" r="30" fill="#1C161F" stroke="#E69B19" stroke-width="3"/>
+  <circle cx="32" cy="32" r="24" fill="#261F29" stroke="#E69B19" stroke-width="1" stroke-opacity="0.35"/>
+  <!-- Treasure Chest -->
+  <path d="M16 28 Q32 16 48 28 L46 34 L18 34 Z" fill="#8C522B"/>
+  <rect x="16" y="33" width="32" height="17" rx="3" fill="#6E3F20"/>
+  <rect x="16" y="33" width="32" height="4" fill="#E69B19"/>
+  <rect x="29" y="35" width="6" height="7" rx="1" fill="#F5B82E"/>
+  <!-- Gold Coins & Gems -->
+  <circle cx="24" cy="31" r="3.5" fill="#F5B82E"/>
+  <circle cx="32" cy="30" r="4" fill="#E69B19"/>
+  <circle cx="40" cy="31" r="3.5" fill="#F5B82E"/>
+  <polygon points="26,23 29,26 26,29 23,26" fill="#10B981"/>
+  <polygon points="32,20 36,24 32,28 28,24" fill="#38BDF8"/>
+  <polygon points="38,23 41,26 38,29 35,26" fill="#EF4444"/>
+</svg>
